@@ -60,7 +60,11 @@ h1 {
     padding: 0;
 }
 
-#js-todo-list li {
+#js-todo-list ul {
+    padding: 0;
+}
+
+#js-todo-list ul li {
     background: #fff;
     padding: 10px;
     margin-bottom: 10px;
