@@ -64,7 +64,7 @@ h1 {
     padding: 0;
 }
 
-#js-todo-list ul li {
+.todo-item {
     background: #fff;
     padding: 10px;
     margin-bottom: 10px;
@@ -74,9 +74,18 @@ h1 {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.todo-item {
+.todo-item .checkbox {
+    margin-right: 10px;
+}
+
+.todo-item .todo-item-title {
     flex-grow: 1;
-    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.todo-item.completed .todo-item-title {
+    text-decoration: line-through;
+    color: #888;
 }
 
 .todo-item.editing {
@@ -96,7 +105,8 @@ h1 {
     display: flex;
 }
 
-.todo-actions button {
+.todo-actions button,
+.todo-item .delete-btn {
     margin-left: 5px;
     padding: 5px 10px;
     background: #333;
@@ -110,8 +120,13 @@ h1 {
     background: #4CAF50;
 }
 
-.todo-actions button.delete-btn {
-    background: #f44336;
+.todo-item .delete-btn {
+    background-color: #f44336;
+    transition: background-color 0.3s;
+}
+
+.todo-item .delete-btn:hover {
+    background-color: #d32f2f;
 }
 
 input[type="checkbox"] {
