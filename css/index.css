@@ -101,6 +101,11 @@ h1 {
     margin-right: 5px;
 }
 
+.todo-item.editing input[type="checkbox"] {
+    flex-grow: 0;
+    visibility: hidden;
+}
+
 .todo-actions {
     display: flex;
 }
@@ -131,4 +136,16 @@ h1 {
 
 input[type="checkbox"] {
     margin-right: 10px;
+}
+
+.todo-item .edit-input {
+    display: none;
+}
+
+.todo-item.editing .todo-item-title {
+    display: none;
+}
+
+.todo-item.editing .edit-input {
+    display: inline;
 }

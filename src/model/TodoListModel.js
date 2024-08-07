@@ -11,11 +11,11 @@ export class TodoListModel extends EventTarget {
     }
 
     getCompletedCount() {
-      return this.#items.filter(todo => todo.completed).length;
+      return this.#items.filter(todo => todo.isCompleted).length;
     }
   
     getIncompleteCount() {
-      return this.#items.filter(todo => !todo.completed).length;
+      return this.#items.filter(todo => !todo.isCompleted).length;
     }
   
     getTodoItems() {
@@ -35,13 +35,23 @@ export class TodoListModel extends EventTarget {
         this.#items.push(todoItem);
         this.emitChange();
     }
-    
-    updateTodo({ id, completed }) {
+
+    editTodo({ id, title }) {
         const todoItem = this.#items.find(todo => todo.id === id);
         if (!todoItem) {
             return;
         }
-        todoItem.completed = completed;
+        todoItem.title = title;
+        
+        this.emitChange();
+    }
+    
+    updateTodo({ id, isCompleted }) {
+        const todoItem = this.#items.find(todo => todo.id === id);
+        if (!todoItem) {
+            return;
+        }
+        todoItem.isCompleted = isCompleted;
         
         this.emitChange();
     }
@@ -53,5 +63,5 @@ export class TodoListModel extends EventTarget {
           });
           this.emitChange();
         }
-      }
+    }
 }  
